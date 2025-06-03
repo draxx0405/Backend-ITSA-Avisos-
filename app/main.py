@@ -5,7 +5,6 @@ from api import teams
 from auth.oauth2 import router as auth_router
 
 app = FastAPI()
-
 # Configura CORS
 app.add_middleware(
     CORSMiddleware,
@@ -23,3 +22,5 @@ app.include_router(teams.router, prefix="/api/teams")
 @app.get("/")
 def read_root():
     return {"message": "Backend ITSA Avisos"}
+
+
