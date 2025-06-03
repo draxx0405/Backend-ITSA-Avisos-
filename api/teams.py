@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2AuthorizationCodeBearer
-from backend.services.graph_service import graph_service
+from services.graph_service import graph_service
 from pydantic import BaseModel
 import base64
 import httpx

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request, HTTPException
 from fastapi.responses import RedirectResponse
-from backend.auth.msal_auth import get_auth_url, get_token_from_code,get_user_info
+from auth.msal_auth import get_auth_url, get_token_from_code,get_user_info
 from fastapi.responses import HTMLResponse
 import httpx
 router = APIRouter()
@@ -21,7 +21,7 @@ async def auth_callback(code: str, state: str = None, session_state: str = None)
             window.opener.postMessage({
               type: 'AUTH_ERROR',
               error: 'Código de autorización faltante'
-            }, 'https://d10gzc4g-5173.usw3.devtunnels.ms/');
+            }, 'https://frontend-itsa-avisos-production.up.railway.app/');
             window.close();
           </script>
         </html>
@@ -55,7 +55,7 @@ async def auth_callback(code: str, state: str = None, session_state: str = None)
                   name: '{user_info.get("name", "")}',
                   email: '{user_info.get("email", "")}'
                 }}
-              }}, 'https://d10gzc4g-5173.usw3.devtunnels.ms/');
+              }}, 'https://frontend-itsa-avisos-production.up.railway.app/');
               window.close();
             </script>
           </body>
@@ -68,7 +68,7 @@ async def auth_callback(code: str, state: str = None, session_state: str = None)
             window.opener.postMessage({{
               type: 'AUTH_ERROR',
               error: '{str(e)}'
-            }}, 'https://d10gzc4g-5173.usw3.devtunnels.ms/');
+            }}, 'https://frontend-itsa-avisos-production.up.railway.app/');
             window.close();
           </script>
         </html>

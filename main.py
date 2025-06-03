@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.api import users
-from backend.api import teams
-from backend.auth.oauth2 import router as auth_router
+from api import users
+from api import teams
+from auth.oauth2 import router as auth_router
 
 app = FastAPI()
 
