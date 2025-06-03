@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request, HTTPException
 from fastapi.responses import RedirectResponse
-from auth.msal_auth import get_auth_url, get_token_from_code,get_user_info
+from app.auth.msal_auth import get_auth_url, get_token_from_code,get_user_info
 from fastapi.responses import HTMLResponse
 import httpx
 router = APIRouter()
