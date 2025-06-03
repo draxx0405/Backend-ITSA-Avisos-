@@ -7,7 +7,7 @@ CLIENT_ID = os.getenv("MSAL_CLIENT_ID")
 CLIENT_SECRET = os.getenv("MSAL_CLIENT_SECRET")
 TENANT_ID = os.getenv("MSAL_TENANT_ID")
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
-REDIRECT_URI = os.getenv("REDIRECT_URI", "http://localhost:8000/auth/redirect")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
 
 # Scopes necesarios
 SCOPES = [

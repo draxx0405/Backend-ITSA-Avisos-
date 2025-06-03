@@ -30,10 +30,11 @@ async def auth_callback(code: str, state: str = None, session_state: str = None)
     try:
         # 1. Obtener token usando el código
         token_result = get_token_from_code(code)
+        print(token_result)
         
         # 2. Obtener información del usuario
         user_info = await get_user_info(token_result['access_token'])
-        
+        print(user_info)
         # 3. Enviar datos al frontend y cerrar ventana
         return f"""
         <html>
@@ -74,6 +75,7 @@ async def auth_callback(code: str, state: str = None, session_state: str = None)
         </html>
         """
 
+
 @router.get("/logout")   
 async def revoke_refresh_token(refresh_token: str, client_id: str, client_secret: str):
     async with httpx.AsyncClient() as client:
@@ -88,3 +90,5 @@ async def revoke_refresh_token(refresh_token: str, client_id: str, client_secret
             return {"message": "Sesión cerrada correctamente"}
         else:
             raise Exception(f"No se pudo cerrar sesión: {response.text}")
+
+
